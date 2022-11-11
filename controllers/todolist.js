@@ -15,4 +15,15 @@ const createToDo = (req, res) => {
     });
 };
 
-module.exports = {createToDo}
+const getAllTodos = (req, res) => {
+    ToDoListSchema.find((err, todos) => {
+        if(err){
+            res.send(err)
+        }
+        res.json(todos)
+    })
+}
+
+
+
+module.exports = {createToDo, getAllTodos}

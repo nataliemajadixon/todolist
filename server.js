@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const router = require('./router/router');
 const server = express();
 const PORT = process.env.PORT || 7777;
-const MONGO_PASS = process.env.DB_password
+const MONGO_PASS = process.env.DB_password;
 const DB_URL = `mongodb+srv://${MONGO_PASS}@todolist.7zxfx7v.mongodb.net/?retryWrites=true&w=majority`
 
 // const DB_URL = `mongodb+srv://${MONGO_PASS}@to-do-list.fu6kjhl.mongodb.net/?retryWrites=true&w=majority`;

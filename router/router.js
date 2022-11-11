@@ -1,4 +1,4 @@
-const { createToDo } = require('../controllers/todolist');
+const { createToDo, getAllTodos } = require('../controllers/todolist');
 
 const router = require('express').Router();
 
@@ -9,5 +9,6 @@ router.get("/", (req, res) => {
 })
 
 router.post("/todos", createToDo);
+router.get("/todos", getAllTodos);
 
 module.exports = router;
