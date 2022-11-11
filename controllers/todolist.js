@@ -24,6 +24,12 @@ const getAllTodos = (req, res) => {
     })
 }
 
+const deleteTodo = (req, res) => {
+    ToDoListSchema.deleteOne({id: req.params.id})
+    .then(() => res.json({message:"item is deleted!"}))
+    .catch((err) => res.send(err))
+}
 
 
-module.exports = {createToDo, getAllTodos}
+
+module.exports = {createToDo, getAllTodos, deleteTodo}
