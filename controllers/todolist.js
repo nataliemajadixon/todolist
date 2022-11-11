@@ -30,6 +30,23 @@ const deleteTodo = (req, res) => {
     .catch((err) => res.send(err))
 }
 
+const updateTodo = (req, res) => {
+    ToDoListSchema.findOneAndUpdate(
+        {id: req.body.id},
+        {$set : {
+            title: req.body.title,
+            description: req.body.description,
+            isCompleted: req.body.isCompleted
+        }},
+        {new: true},
+        (err, ToDoListSchema) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(ToDoListSchema)
+        }
+    )
+}
 
 
-module.exports = {createToDo, getAllTodos, deleteTodo}
+module.exports = {createToDo, getAllTodos, deleteTodo, updateTodo}
