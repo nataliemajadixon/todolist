@@ -24,6 +24,18 @@ const getAllTodos = (req, res) => {
     })
 }
 
+const getOneTodo = (req, res) => {
+    ToDoListSchema.findOne({id: req.params.id},
+        (err, ToDoListSchema) => {
+            if (err) {
+                res.send(err);
+            }
+            res.json(ToDoListSchema)
+        }
+        )
+    
+}
+
 const deleteTodo = (req, res) => {
     ToDoListSchema.deleteOne({id: req.params.id})
     .then(() => res.json({message:"item is deleted!"}))
@@ -49,4 +61,4 @@ const updateTodo = (req, res) => {
 }
 
 
-module.exports = {createToDo, getAllTodos, deleteTodo, updateTodo}
+module.exports = {createToDo, getAllTodos, deleteTodo, updateTodo, getOneTodo}
