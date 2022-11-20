@@ -11,7 +11,9 @@ const createToDo = (req, res) => {
         if(err){
             res.send(err);
         }
-        res.json(todo);
+        res.send(todo);
+       
+
     });
 };
 
@@ -20,7 +22,8 @@ const getAllTodos = (req, res) => {
         if(err){
             res.send(err)
         }
-        res.json(todos)
+        // res.json(todos) 
+        res.render("todo",{todos: todos})
     })
 }
 
